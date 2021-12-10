@@ -27,9 +27,37 @@ app.get('/', (req, res) => {
     });
 });
 
-db.query(`SELECT * FROM candidates`, (err, rows) => {
-    console.log(rows);
-})
+// db.query(`SELECT * FROM candidates`, (err, rows) => {
+//     console.log(rows);
+// })
+
+// get single candidate
+// db.query(`SELECT * FROM candidates WHERE id =1`, (err, row) => {
+//     if (err) {
+//         console.log(err);
+//     }
+//     console.log(row);
+// });
+
+// db.query(`DELETE FROM candidates WHERE id = ?`, 1, (err, result) => {
+//     if (err) {
+//         console.log(err);
+//     }
+//     console.log(result);
+// });
+
+// create database
+const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected)
+VALUES (?,?,?,?)`;
+const params = [1, 'Ronald', 'Firbankk', 1];
+
+db.query(sql, params, (err, result) => {
+    if (err) {
+        console.log(err);
+    }
+    console.log(result);
+});
+
 
 // catch all route. always put at bottom of get routes
 app.use((req, res) => {
