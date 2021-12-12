@@ -2,6 +2,14 @@
 DROP TABLE IF EXISTS candidates;
 DROP TABLE IF EXISTS parties;
 
+CREATE TABLE voters (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    email VARCHAR(30) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
 /* put parties above candidates because it is dependent on candidates */
 CREATE TABLE parties (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
